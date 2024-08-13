@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV['RAILS_MAX_THREADS'] ||  5 %>
+  username: <%= ENV['POSTGRES_USER'] || 'postgres' %>
+  password: <%= ENV['POSTGRES_PASSWORD'] || 'password' %>
+  host: <%= ENV['DB_HOST'] || 'db' %>
+  port: <%= ENV['DB_PORT'] || 5432 %>
+
+development:
+  <<: *default
+  database: xml_processor_development
+
+test:
+  <<: *default
+  database: xml_processor_test
+
+production:
+  <<: *default
+  database: xml_processor_production
+
