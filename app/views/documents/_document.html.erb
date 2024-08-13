@@ -1,0 +1,13 @@
+<!-- app/views/documents/_document.html.erb -->
+<div class="document">
+    <h2><%="#{document.id} - #{document.file_name}"%></h2>
+    <p>Status: <%= document.status %></p>
+
+    <% if document.error_message.present? %>
+        <p>Erro: <%= document.error_message %></p>
+    <% end %>
+
+    <small>Criado em: <%= document.created_at.strftime("%d/%m/%Y") %> ||</small>
+    <small>Atualizado em: <%= document.updated_at.strftime("%d/%m/%Y") %></small>
+    <p> <a href="<%= file_url(document.xml_file) %>">Download XML</a> </p>
+</div>
