@@ -1,11 +1,11 @@
 <!-- app/views/documents/_form.html.erb -->
-<%= form_with model: document, local: true, html: { multipart: true } do |form| %>
+<%= form_with model: document, local: true, html: { multipart: true, class: "document-form" } do |form| %>
   <div class="field">
-    <%= form.label :xml_file, "Upload de Arquivo XML" %>
-    <%= form.file_field :xml_file %>
+    <%= form.label :xml_file, "Upload de Arquivo XML", class: "form-label" %>
+    <%= form.file_field :xml_file, class: "form-input" %>
   </div>
 
   <div class="actions">
-    <%= form.submit "Enviar XML" %>
+    <%= form.submit "Enviar XML", class: "btn-submit" %>
   </div>
 <% end %>
