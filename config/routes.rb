@@ -6,7 +6,9 @@ Rails.application.routes.draw do
     mount Sidekiq::Web => '/sidekiq'
   end
 
-  resources :documents, only: [:index, :new, :create]
+  resources :documents, only: [:index, :new, :create] do
+    get :report
+  end
 
   root to: 'home#index'
 end
