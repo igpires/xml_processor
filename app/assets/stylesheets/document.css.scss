@@ -1,0 +1,208 @@
+/* Contêiner Principal */
+.document-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    overflow: hidden;
+}
+
+/* Lista de Documentos */
+.documents-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    overflow: hidden;
+}
+
+/* Estilo do Documento */
+.document {
+    background-color: #ffffff;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    width: calc(33.333% - 30px); /* Três colunas em telas grandes */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center; /* Centraliza todo o conteúdo */
+}
+
+.document:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+
+.document h2 {
+    font-size: 25px;
+    margin-bottom: 15px;
+    color: #007bff;
+}
+
+.document p {
+    font-size: 20px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.document small {
+    position: relative;
+    display: block;
+    color: #777;
+    font-size: 14px;
+}
+
+/* Estilo das Datas no Documento */
+.document-dates {
+    display: flex;
+    justify-content: center; /* Centraliza as datas */
+    align-items: center;
+    color: #555; /* Cor mais escura para melhor legibilidade */
+    font-size: 15px; /* Tamanho de fonte ligeiramente maior */
+    margin: 0 0 10px; /* Espaçamento inferior menor */
+}
+
+.date-separator {
+    margin: 0 15px; /* Maior espaçamento entre as datas */
+    color: #ccc; /* Mantém a cor da barra de separação */
+    font-size: 10px; /* Aumenta ligeiramente o tamanho da barra */
+}
+
+/* Estilo do Link de Download */
+.document a {
+    font-size: 14px;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.document a:hover {
+    text-decoration: underline;
+}
+
+/* Estilo do Botão Novo Documento */
+.btn-new-document {
+    display: block;
+    margin: 40px auto;
+    background-color: #007bff;
+    color: #fff;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    width: 250px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-new-document:hover {
+    background-color: #0056b3;
+}
+
+/* Responsividade para Telas Médias */
+@media screen and (max-width: 1024px) {
+    .document {
+        width: calc(50% - 30px); /* Duas colunas em telas médias */
+    }
+}
+
+/* Responsividade para Telas Pequenas */
+@media screen and (max-width: 768px) {
+    .document-container {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .documents-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .document {
+        width: 100%;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+
+    .btn-new-document {
+        width: 100%;
+    }
+}
+/* Estilo do Formulário */
+.form-container {
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+/* Estilo do Campo e Label */
+.field {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: block;
+    font-size: 18px;
+    color: #007bff;
+    text-align: left;
+}
+
+.form-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Estilo do Botão de Envio */
+.btn-submit {
+    background-color: #018543;
+    color: #fff;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    width: 50%;
+}
+
+.actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.btn-submit:hover {
+    background-color: #076335;
+}
+
+/* Estilo do Botão de Voltar */
+.btn-new-document {
+    display: block;
+    margin: 20px auto;
+    background-color: #007bff;
+    color: #fff;
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    width: 200px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-new-document:hover {
+    background-color: #0056b3;
+}

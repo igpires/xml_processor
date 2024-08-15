@@ -1,15 +1,16 @@
-<!-- app/views/documents/index.html.erb -->
-<h1>Lista de Documentos</h1>
+<!-- app/views/documents/document.html.erb -->
+<div class="document-container">
+  <h1>Lista de Documentos</h1>
 
-<% if @documents.any? %>
-  <ul>
-    <% @documents.each do |document| %>
-      <li>
+  <% if @documents.any? %>
+    <div class="documents-list">
+      <% @documents.each do |document| %>
         <%= render partial: "document", locals: { document: document } %>
-      </li>
-    <% end %>
-  </ul>
-<% else %>
-  <p>Nenhum documento encontrado.</p>
-<% end %>
-<%= link_to "Novo Documento", new_document_path %>
+      <% end %>
+    </div>
+  <% else %>
+    <p>Nenhum documento encontrado.</p>
+  <% end %>
+
+  <%= link_to "Novo Documento", new_document_path, class: 'btn-new-document' %>
+</div>

@@ -1,4 +1,9 @@
-<h1>Bem-vindo ao Sistema de Processamento de Documentos</h1>
-<p>Clique no botão abaixo para gerenciar os documentos.</p>
-
-<%= link_to 'Gerenciar Documentos', documents_path, class: 'btn btn-primary' %>
+<div class="home-container">
+  <div class="welcome-banner">
+    <h1>Bem-vindo ao Sistema de Processamento de Documentos</h1>
+    <p class="lead">Gerencie seus documentos de forma eficiente e segura.</p>
+    <hr class="divider">
+    <p>Este sistema permite que você gerencie, processe e visualize documentos de maneira rápida e simples.</p>
+    <a href="<%= documents_path %>" class="btn-primary">Gerenciar Documentos</a>
+  </div>
+</div>

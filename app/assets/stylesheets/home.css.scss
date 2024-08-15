@@ -1,0 +1,65 @@
+
+.home-container {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 50px; /* Espaço no topo */
+    height: calc(100% - 50px); /* Reduz a altura disponível para incluir o padding-top */
+}
+
+/* Banner de boas-vindas */
+.welcome-banner {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+}
+
+/* Título principal */
+.welcome-banner h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #007bff;
+}
+
+/* Parágrafo principal */
+.welcome-banner .lead {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+/* Linha divisora */
+.divider {
+    border: 0;
+    height: 1px;
+    background: #ddd;
+    margin: 20px 0;
+}
+
+/* Parágrafo secundário */
+.welcome-banner p {
+    font-size: 16px;
+    margin-bottom: 30px;
+    color: #666;
+}
+
+/* Botão primário */
+.btn-primary {
+    display: inline-block;
+    background-color: #007bff;
+    color: #fff;
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}

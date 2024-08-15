@@ -1,0 +1,42 @@
+<!-- app/views/documents/_document_info.html.erb -->
+<div class="document-info">
+  <h2>Document Report</h2>
+  <table>
+    <tr>
+      <th>ID</th>
+      <td><%= @document.id %></td>
+    </tr>
+    <tr>
+      <th>Serie Number</th>
+      <td><%= @document.serie_number %></td>
+    </tr>
+    <tr>
+      <th>Invoice Number</th>
+      <td><%= @document.invoice_number %></td>
+    </tr>
+    <tr>
+      <th>Emission Date</th>
+      <td><%= @document.emission_date %></td>
+    </tr>
+    <tr>
+      <th>Status</th>
+      <td><%= @document.status %></td>
+    </tr>
+    <tr>
+      <th>Error Message</th>
+      <td><%= @document.error_message || "N/A" %></td>
+    </tr>
+    <tr>
+      <th>User ID</th>
+      <td><%= @document.user_id %></td>
+    </tr>
+    <tr>
+      <th>Created At</th>
+      <td><%= @document.created_at %></td>
+    </tr>
+    <tr>
+      <th>Updated At</th>
+      <td><%= @document.updated_at %></td>
+    </tr>
+  </table>
+</div>
