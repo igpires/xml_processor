@@ -17,8 +17,13 @@ class Document < ApplicationRecord
 
   # Callbacks
   before_create :default_status
+  after_create :processing_xml
 
   private
+
+  def processing_xml
+    ProcessXmlJob.perform_later(self)
+  end
 
   def default_status
     self.status = :pending
