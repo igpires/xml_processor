@@ -16,13 +16,9 @@ class Document < ApplicationRecord
   validate :correct_xml_mime_type
 
   # Callbacks
-  before_create :set_file_name, :default_status
+  before_create :default_status
 
   private
-
-  def set_file_name
-    self.file_name = xml_file.filename.to_s if xml_file.attached?
-  end
 
   def default_status
     self.status = :pending
