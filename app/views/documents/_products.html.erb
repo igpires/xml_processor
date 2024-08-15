@@ -1,0 +1,36 @@
+<!-- app/views/documents/_products.html.erb -->
+<div class="products">
+  <h3>Products</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>NCM</th>
+        <th>CFOP</th>
+        <th>Commercial Unit</th>
+        <th>Quantity Sold</th>
+        <th>Unit Price</th>
+        <th>ICMS</th>
+        <th>IPI</th>
+        <th>PIS</th>
+        <th>COFINS</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @products.each do |product| %>
+        <tr>
+          <td><%= product.name.truncate(80)%></td>
+          <td><%= product.ncm %></td>
+          <td><%= product.cfop %></td>
+          <td><%= product.commercial_unit %></td>
+          <td><%= product.quantity_sold %></td>
+          <td><%= number_to_currency(product.unit_price) %></td>
+          <td><%= number_to_currency(product.tax.icms_value) %></td>
+          <td><%= number_to_currency(product.tax.ipi_value) %></td>
+          <td><%= number_to_currency(product.tax.pis_value) %></td>
+          <td><%= number_to_currency(product.tax.cofins_total) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

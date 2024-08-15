@@ -1,0 +1,93 @@
+.document-report {
+    width: 80%;
+    margin: 40px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Títulos */
+.document-report h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #007bff;
+}
+
+.document-report h3 {
+    font-size: 20px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+/* Tabelas */
+.document-report table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.document-report th,
+.document-report td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+.document-report th {
+    background-color: #007bff;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: normal;
+    font-size: 14px;
+}
+
+.document-report td {
+    background-color: #f9f9f9;
+    font-size: 14px;
+}
+
+/* Rodapé da Tabela */
+.document-report tfoot td {
+    font-weight: bold;
+    background-color: #f1f1f1;
+}
+
+/* Estilo alternado para as linhas da tabela */
+.document-report tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Links */
+.document-report a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.document-report a:hover {
+    text-decoration: underline;
+}
+
+/* Responsividade */
+@media screen and (max-width: 768px) {
+    .document-report {
+        width: 95%;
+        margin: 20px auto;
+        padding: 15px;
+    }
+
+    .document-report h2 {
+        font-size: 30px;
+    }
+
+    .document-report h3 {
+        font-size: 18px;
+    }
+
+    .document-report th,
+    .document-report td {
+        font-size: 12px;
+        padding: 8px;
+    }
+}
