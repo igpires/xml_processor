@@ -1,6 +1,6 @@
 <!-- app/views/documents/_document.html.erb -->
 <div class="document">
-    <h2><%="#{document.id} - #{document.file_name}"%></h2>
+    <h2><%="#{document.id} - Numero de Série #{document.serie_number || 'em processamento'}" %></h2>
     <p>Status: <%= document.status %></p>
 
     <% if document.error_message.present? %>

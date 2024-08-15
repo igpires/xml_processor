@@ -1,6 +1,9 @@
 class Document < ApplicationRecord
   # Associations
   belongs_to :user
+  has_many :parties, dependent: :destroy
+  has_one :financial_summary, dependent: :destroy
+  has_many :products, dependent: :destroy
 
   # Enums
   enum status: { pending: 0, processing: 1, processed: 2, failed: 3 }
@@ -13,12 +16,13 @@ class Document < ApplicationRecord
   validate :correct_xml_mime_type
 
   # Callbacks
-  before_create :set_file_name, :default_status
+  before_create :default_status
+  after_create :processing_xml
 
   private
 
-  def set_file_name
-    self.file_name = xml_file.filename.to_s if xml_file.attached?
+  def processing_xml
+    ProcessXmlJob.perform_later(self)
   end
 
   def default_status

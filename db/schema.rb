@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_08_13_174331) do
+ActiveRecord::Schema[7.0].define(version: 2024_08_14_031925) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -43,10 +43,57 @@ ActiveRecord::Schema[7.0].define(version: 2024_08_13_174331) do
   end
 
   create_table "documents", force: :cascade do |t|
-    t.string "file_name"
-    t.integer "status"
+    t.string "serie_number"
+    t.string "invoice_number"
+    t.date "emission_date"
+    t.integer "status", default: 0
     t.string "error_message"
     t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "financial_summaries", force: :cascade do |t|
+    t.decimal "product_total", precision: 15, scale: 2
+    t.decimal "icms_total", precision: 15, scale: 2
+    t.decimal "ipi_total", precision: 15, scale: 2
+    t.decimal "pis_total", precision: 15, scale: 2
+    t.decimal "cofins_total", precision: 15, scale: 2
+    t.decimal "total_taxes", precision: 15, scale: 2
+    t.integer "document_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "parties", force: :cascade do |t|
+    t.string "cnpj"
+    t.string "legal_name"
+    t.string "trade_name"
+    t.jsonb "details"
+    t.integer "role"
+    t.string "document_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string "name"
+    t.string "ncm"
+    t.string "cfop"
+    t.string "commercial_unit"
+    t.decimal "quantity_sold", precision: 15, scale: 4
+    t.decimal "unit_price", precision: 15, scale: 10
+    t.integer "document_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "taxes", force: :cascade do |t|
+    t.decimal "icms_value", precision: 15, scale: 2
+    t.decimal "ipi_value", precision: 15, scale: 2
+    t.decimal "pis_value", precision: 15, scale: 2
+    t.string "cofins_total"
+    t.integer "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
