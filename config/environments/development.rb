@@ -57,10 +57,22 @@ Rails.application.configure do
   config.active_record.verbose_query_logs = true
 
   # Suppress logger output for asset requests.
-  config.assets.quiet = true
+  config.assets.quiet = false
 
+  # Ensure assets are reloaded on every request
+  config.assets.debug = true
+  config.assets.digest = false
+  config.assets.compile = true
+
+  # Disable public file server caching
+  config.public_file_server.headers = {
+    "Cache-Control" => "no-cache, no-store, max-age=0, must-revalidate"
+  }
+
+  # Reload classes only on change
   config.reload_classes_only_on_change = true
 
+  # Set default URL options for the routes
   Rails.application.routes.default_url_options[:host] = 'localhost'
   Rails.application.routes.default_url_options[:port] = 3000
 
