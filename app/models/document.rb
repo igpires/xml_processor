@@ -1,6 +1,9 @@
 class Document < ApplicationRecord
   # Associations
   belongs_to :user
+  has_many :parties, dependent: :destroy
+  has_one :financial_summary, dependent: :destroy
+  has_many :products, dependent: :destroy
 
   # Enums
   enum status: { pending: 0, processing: 1, processed: 2, failed: 3 }
