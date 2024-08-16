@@ -64,6 +64,11 @@ Rails.application.configure do
   config.assets.digest = false
   config.assets.compile = true
 
+  config.assets.debug = true
+  config.assets.digest = true
+  config.assets.raise_runtime_errors = true
+
+
   # Disable public file server caching
   config.public_file_server.headers = {
     "Cache-Control" => "no-cache, no-store, max-age=0, must-revalidate"
