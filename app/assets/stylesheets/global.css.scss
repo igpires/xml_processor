@@ -56,3 +56,31 @@ h1 {
     margin-bottom: 40px;
     font-weight: 700;
 }
+
+/* app/assets/stylesheets/application.css */
+
+.user-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+}
+
+.user-info span {
+    font-weight: bold;
+}
+
+.logout-form {
+    display: inline;
+}
+
+.logout-link {
+    background-color: #fff;
+    color: #007bff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}

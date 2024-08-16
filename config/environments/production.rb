@@ -88,6 +88,11 @@ Rails.application.configure do
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
 
+  config.assets.js_compressor = :uglifier
+  config.assets.compile = false
+  config.assets.digest = true
+
+
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 end

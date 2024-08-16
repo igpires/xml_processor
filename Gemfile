@@ -32,6 +32,9 @@ gem 'sassc-rails'
 # Devise authentication
 gem "devise"
 
+# search gem
+gem 'ransack'
+
 # Side jobs
 gem 'sidekiq'
 
