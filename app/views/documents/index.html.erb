@@ -1,6 +1,9 @@
-<!-- app/views/documents/document.html.erb -->
+<%= javascript_include_tag 'filters', 'data-turbo-track': 'reload' %>
+
 <div class="document-container">
   <h1>Lista de Documentos</h1>
+
+  <%= render 'filter' %>
 
   <% if @documents.any? %>
     <div class="documents-list">
