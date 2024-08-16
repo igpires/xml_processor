@@ -21,6 +21,14 @@ class Document < ApplicationRecord
 
   private
 
+  def self.ransackable_attributes(auth_object = nil)
+    ["created_at", "emission_date", "error_message", "id", "invoice_number", "serie_number", "status", "updated_at", "user_id"]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    ["products", "parties", "financial_summary"]
+  end
+
   def processing_xml
     ProcessXmlJob.perform_later(self)
   end
