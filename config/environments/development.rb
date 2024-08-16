@@ -57,14 +57,28 @@ Rails.application.configure do
   config.active_record.verbose_query_logs = true
 
   # Suppress logger output for asset requests.
-  config.assets.quiet = true
+  config.assets.quiet = false
 
-  # Raises error for missing translations.
-  # config.i18n.raise_on_missing_translations = true
+  # Ensure assets are reloaded on every request
+  config.assets.debug = true
+  config.assets.digest = false
+  config.assets.compile = true
 
-  # Annotate rendered view with file names.
-  # config.action_view.annotate_rendered_view_with_filenames = true
+  config.assets.debug = true
+  config.assets.digest = true
+  config.assets.raise_runtime_errors = true
 
-  # Uncomment if you wish to allow Action Cable access from any origin.
-  # config.action_cable.disable_request_forgery_protection = true
+
+  # Disable public file server caching
+  config.public_file_server.headers = {
+    "Cache-Control" => "no-cache, no-store, max-age=0, must-revalidate"
+  }
+
+  # Reload classes only on change
+  config.reload_classes_only_on_change = true
+
+  # Set default URL options for the routes
+  Rails.application.routes.default_url_options[:host] = 'localhost'
+  Rails.application.routes.default_url_options[:port] = 3000
+
 end

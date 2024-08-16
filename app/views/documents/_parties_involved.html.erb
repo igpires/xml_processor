@@ -1,0 +1,24 @@
+<!-- app/views/documents/_parties_involved.html.erb -->
+<div class="parties-involved">
+  <h3>Parties Involved</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Role</th>
+        <th>CNPJ</th>
+        <th>Legal Name</th>
+        <th>Trade Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @parties.each do |party| %>
+        <tr>
+          <td><%= party.role.capitalize %></td>
+          <td><%= party.cnpj %></td>
+          <td><%= party.legal_name %></td>
+          <td><%= party.trade_name.present? ? party.trade_name : "N/A" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

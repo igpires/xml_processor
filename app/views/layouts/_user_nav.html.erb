@@ -1,0 +1,15 @@
+<!-- app/views/layouts/_user_nav.html.erb -->
+<header class="user-nav">
+  <div class="user-info">
+    <% if user_signed_in? %>
+      <span><%= current_user.email %></span>
+    <% end %>
+  </div>
+  <nav class="user-actions">
+    <% if user_signed_in? %>
+      <%= form_with url: destroy_user_session_path, method: :delete, data: { turbo: false }, class: "logout-form" do %>
+        <%= submit_tag "Logout", class: "logout-link" %>
+      <% end %>
+    <% end %>
+  </nav>
+</header>

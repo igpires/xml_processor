@@ -1,0 +1,30 @@
+<!-- app/views/documents/_financial_summary.html.erb -->
+<div class="financial-summary">
+  <h3>Financial Summary</h3>
+  <table>
+    <tr>
+      <th>Product Total</th>
+      <td><%= number_to_currency(@financial_summary.product_total) %></td>
+    </tr>
+    <tr>
+      <th>ICMS Total</th>
+      <td><%= number_to_currency(@financial_summary.icms_total) %></td>
+    </tr>
+    <tr>
+      <th>IPI Total</th>
+      <td><%= number_to_currency(@financial_summary.ipi_total) %></td>
+    </tr>
+    <tr>
+      <th>PIS Total</th>
+      <td><%= number_to_currency(@financial_summary.pis_total) %></td>
+    </tr>
+    <tr>
+      <th>COFINS Total</th>
+      <td><%= number_to_currency(@financial_summary.cofins_total) %></td>
+    </tr>
+    <tr>
+      <th>Total Taxes</th>
+      <td><%= number_to_currency(@financial_summary.total_taxes) %></td>
+    </tr>
+  </table>
+</div>
