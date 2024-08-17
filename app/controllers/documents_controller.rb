@@ -5,7 +5,6 @@ class DocumentsController < ApplicationController
 
   def index
     @q = Document.ransack(params[:q], auth_object: current_user)
-
     @documents = @q.result(distinct: true).where(user: current_user).order(created_at: :desc)
   end
 
@@ -13,13 +12,17 @@ class DocumentsController < ApplicationController
   end
 
   def create
-    @document = current_user.documents.build(document_params)
+    service = DocumentBusiness::Create.new(document_params.merge(user: current_user))
+    service.call
 
-    if @document.save
-      redirect_to documents_path, notice: "Documento criado com sucesso."
+    if service.error
+      redirect_to new_document_path, alert: "Erro ao criar documento: #{service.error}"
     else
-      render :new
+      redirect_to documents_path, notice: service.message
     end
+
+  rescue ActionController::ParameterMissing => e
+    redirect_to new_document_path, alert: "Erro ao criar documento. #{e.message}"
   end
 
   def report
@@ -45,6 +48,6 @@ class DocumentsController < ApplicationController
   end
 
   def document_params
-    params.require(:document).permit(:xml_file)
+    params.require(:document).permit(:file)
   end
 end
