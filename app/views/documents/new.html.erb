@@ -1,6 +1,7 @@
-<!-- app/views/documents/new.html.erb -->
+<%= javascript_include_tag 'form', 'data-turbo-track': 'reload' %>
+
 <div class="document-container">
-  <h1>Novo Documento - Upload de XML</h1>
+  <h1>Novo Documento</h1>
 
   <div class="form-container">
     <%= render partial: "form", locals: { document: @document } %>

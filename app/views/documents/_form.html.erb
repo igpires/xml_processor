@@ -1,11 +1,23 @@
 <!-- app/views/documents/_form.html.erb -->
 <%= form_with model: document, local: true, html: { multipart: true, class: "document-form" } do |form| %>
-  <div class="field">
-    <%= form.label :xml_file, "Upload de Arquivo XML", class: "form-label" %>
-    <%= form.file_field :xml_file, class: "form-input" %>
+  <div class="file-upload-container">
+    <div class="field">
+      <%= form.label :file_type, "Selecione o Tipo de Arquivo", class: "form-label" %>
+      <%= form.select :file_type, options_for_select([['XML', 'xml'], ['ZIP', 'zip']]), { prompt: 'Escolha um tipo de arquivo' }, id: "file_type_select", class: "form-select" %>
+    </div>
+
+    <div class="field" id="xml_upload_field" style="display: none;">
+      <%= form.label :file, "Upload de Arquivo XML", class: "form-label" %>
+      <%= form.file_field :file, class: "form-input", accept: ".xml" %>
+    </div>
+
+    <div class="field" id="zip_upload_field" style="display: none;">
+      <%= form.label :file, "Upload de Arquivo ZIP", class: "form-label" %>
+      <%= form.file_field :file, class: "form-input", accept: ".zip" %>
+    </div>
   </div>
 
   <div class="actions">
-    <%= form.submit "Enviar XML", class: "btn-submit" %>
+    <%= form.submit "Enviar", class: "btn-submit" %>
   </div>
 <% end %>
