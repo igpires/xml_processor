@@ -18,8 +18,11 @@ class DocumentsController < ApplicationController
     if @document.save
       redirect_to documents_path, notice: "Documento criado com sucesso."
     else
-      render :new
+      redirect_to new_document_path, alert: "Erro ao criar documento."
     end
+
+  rescue ActionController::ParameterMissing => e
+    redirect_to new_document_path, alert: "Erro ao criar documento. #{e.message}"
   end
 
   def report
