@@ -11,6 +11,14 @@
         <%= render partial: "document", locals: { document: document } %>
       <% end %>
     </div>
+
+    <div class="pagination">
+      <%= will_paginate @documents %>
+      <div class="pagination-info">
+        Total: <%= @documents.total_entries %> documentos |
+        Páginas: <%= @documents.total_pages %>
+      </div>
+    </div>
   <% else %>
     <p>Nenhum documento encontrado.</p>
   <% end %>
