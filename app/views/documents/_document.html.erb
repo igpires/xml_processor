@@ -1,0 +1,16 @@
+<div class="document">
+    <h2><%="#{document.id} - Nota nº #{document.invoice_number || 'em processamento'}" %></h2>
+    <p>Status: <%= document.status %></p>
+
+    <% if document.error_message.present? %>
+        <p>Erro: <%= document.error_message %></p>
+    <% end %>
+
+    <div class="document-dates">
+        <small>Criado em: <%= document.created_at.strftime("%d/%m/%Y") %></small>
+        <span class="date-separator">|</span>
+        <small>Atualizado em: <%= document.updated_at.strftime("%d/%m/%Y") %></small>
+    </div>
+    <p> <a href="<%= file_url(document.xml_file) %>">Download XML</a> </p>
+    <p> <a href="<%= document_report_path(document.id)%>">Ver Relatório</a> </p>
+</div>

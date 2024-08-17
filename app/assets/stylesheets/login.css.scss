@@ -1,0 +1,82 @@
+/* Wrapper para centralizar o container */
+.signup-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Preenche a altura total da viewport */
+}
+
+/* Container do formulário de inscrição */
+.signup-container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+}
+
+/* Título do formulário */
+.signup-container h2 {
+    text-align: center;
+    color: #333333;
+    margin-bottom: 20px;
+}
+
+/* Campos de entrada de dados */
+.signup-container .field {
+    margin-bottom: 15px;
+}
+
+.signup-container label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: inline-block;
+    color: #333333;
+}
+
+.signup-container input[type="email"],
+.signup-container input[type="password"],
+.signup-container input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Botão de inscrição */
+.signup-container .actions input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.signup-container .actions input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Links (como "Já tem uma conta?") */
+.signup-container .links {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.signup-container .links a {
+    color: #007bff;
+    text-decoration: none;
+    margin: 0 5px;
+    transition: color 0.3s;
+}
+
+.signup-container .links a:hover {
+    color: #0056b3;
+}

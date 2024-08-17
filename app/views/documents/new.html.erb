@@ -1,0 +1,12 @@
+<!-- app/views/documents/new.html.erb -->
+<div class="document-container">
+  <h1>Novo Documento - Upload de XML</h1>
+
+  <div class="form-container">
+    <%= render partial: "form", locals: { document: @document } %>
+  </div>
+
+  <div class="actions">
+    <%= link_to 'Voltar', documents_path, class: 'btn-new-document' %>
+  </div>
+</div>

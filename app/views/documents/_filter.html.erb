@@ -1,0 +1,59 @@
+<div class="toggle-filter-bar">
+  <button id="toggle-filter-bar-button">Mostrar Filtros</button>
+</div>
+
+<div class="filter-bar" id="filter-bar" style="display: none;">
+  <!-- Filtro de Entidade -->
+  <div class="filter-entity">
+    <label for="entity_select">Filtrar por Entidade:</label>
+    <select id="entity_select" class="filter-select">
+      <option value="" disabled selected>Selecione uma Entidade</option>
+      <option value="document">Documento</option>
+      <option value="product">Produto</option>
+      <!--
+       TODO: Adicionar as outras entidades na busca, se sobrar tempo
+
+      <option value="party">Party</option>
+      <option value="financial_summary">Resumo Financeiro</option>
+      -->
+    </select>
+  </div>
+
+  <!-- Campo de Pesquisa -->
+  <div class="filter-field">
+    <label for="filter_query">Pesquisar:</label>
+    <input type="text" id="filter_query" class="filter-input" disabled>
+  </div>
+
+  <div id="document-filters" class="entity-filters" style="display: none;">
+    <h4>Filtros de Documento</h4>
+    <label for="serie_number_cont">Número de Série</label>
+    <input type="checkbox" id="serie_number_cont" name="q[serie_number_cont]" class="document-check">
+
+    <label for="invoice_number_cont">Número da Fatura</label>
+    <input type="checkbox" id="invoice_number_cont" name="q[invoice_number_cont]" class="document-check">
+
+    <label for="status_cont">Status</label>
+    <input type="checkbox" id="status_cont" name="q[status_cont]" class="document-check">
+  </div>
+
+  <div id="product-filters" class="entity-filters" style="display: none;">
+    <h4>Filtros de Produto</h4>
+    <label for="products_name_cont">Nome do Produto</label>
+    <input type="checkbox" id="products_name_cont" name="q[products_name_cont]" class="product-check">
+
+    <label for="products_ncm_cont">NCM do Produto</label>
+    <input type="checkbox" id="products_ncm_cont" name="q[products_ncm_cont]" class="product-check">
+
+    <label for="products_cfop_cont">CFOP do Produto</label>
+    <input type="checkbox" id="products_cfop_cont" name="q[products_cfop_cont]" class="product-check">
+  </div>
+
+  <!-- TODO: Adicionar as outras entidades na busca, se sobrar tempo -->
+
+  <!-- Botões de Ação -->
+  <div class="filter-actions">
+    <button class="btn-filter">Filtrar</button>
+    <%= link_to "Limpar Filtros", documents_path, class: "btn-reset-filters" %>
+  </div>
+</div>
