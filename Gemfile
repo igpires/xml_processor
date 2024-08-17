@@ -41,6 +41,9 @@ gem 'sidekiq'
 # Zip files
 gem 'rubyzip'
 
+# pagination
+gem 'will_paginate'
+
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
