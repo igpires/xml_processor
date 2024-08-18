@@ -11,6 +11,14 @@
         <span class="date-separator">|</span>
         <small>Atualizado em: <%= document.updated_at.strftime("%d/%m/%Y") %></small>
     </div>
+
+    <% if document.status == 'processed' %>
+        <p> <a href="<%= document_report_path(document.id)%>">Ver Relatório</a> </p>
+    <% end %>
+
+    <% if document.excel_report.attached? %>
+        <p> <a href="<%= file_url(document.excel_report) %>">Download Excel</a> </p>
+    <% end %>
+
     <p> <a href="<%= file_url(document.xml_file) %>">Download XML</a> </p>
-    <p> <a href="<%= document_report_path(document.id)%>">Ver Relatório</a> </p>
 </div>
