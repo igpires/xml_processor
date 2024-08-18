@@ -44,6 +44,8 @@ gem 'rubyzip'
 # pagination
 gem 'will_paginate'
 
+# xlsx files generation
+gem 'write_xlsx'
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
