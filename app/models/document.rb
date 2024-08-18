@@ -10,6 +10,7 @@ class Document < ApplicationRecord
 
   # ActiveStorage
   has_one_attached :xml_file
+  has_one_attached :excel_report
 
   # Validations
   validates :xml_file, presence: true
@@ -18,6 +19,7 @@ class Document < ApplicationRecord
   # Callbacks
   before_create :default_status
   after_create :processing_xml
+  after_save :create_excel_report, if: -> { status == "processed" && !excel_report.attached? }
 
   private
 
@@ -31,6 +33,10 @@ class Document < ApplicationRecord
 
   def processing_xml
     ProcessXmlJob.perform_later(self)
+  end
+
+  def create_excel_report
+    ReportExcelJob.perform_later(self)
   end
 
   def default_status
