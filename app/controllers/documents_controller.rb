@@ -5,7 +5,10 @@ class DocumentsController < ApplicationController
 
   def index
     @q = Document.ransack(params[:q], auth_object: current_user)
-    @documents = @q.result(distinct: true).where(user: current_user).order(created_at: :desc)
+    results = @q.result(distinct: true).where(user: current_user).order(created_at: :desc)
+
+    @documents = results.paginate(page: params[:page] || 1, per_page: params[:per_page] || 6)
+    @total = results.count
   end
 
   def new
