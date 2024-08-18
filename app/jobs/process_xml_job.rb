@@ -67,8 +67,31 @@ class ProcessXmlJob < ApplicationJob
       legal_name: party_node.xpath('nfe:xNome', nfe_namespace).text,
       trade_name: party_node.xpath('nfe:xFant', nfe_namespace).text,
       role: role,
-      document: @document
+      document: @document,
+      details: set_party_details(party_node, role)
     )
+  end
+
+  def set_party_details(party_node, role)
+    address_node = role == 'issuer' ? 'enderEmit' : 'enderDest'
+
+    {
+      address: {
+        street: party_node.xpath("nfe:#{address_node}/nfe:xLgr", nfe_namespace).text,
+        number: party_node.xpath("nfe:#{address_node}/nfe:nro", nfe_namespace).text,
+        complement: party_node.xpath("nfe:#{address_node}/nfe:xCpl", nfe_namespace).text,
+        neighborhood: party_node.xpath("nfe:#{address_node}/nfe:xBairro", nfe_namespace).text,
+        city_code: party_node.xpath("nfe:#{address_node}/nfe:cMun", nfe_namespace).text,
+        city: party_node.xpath("nfe:#{address_node}/nfe:xMun", nfe_namespace).text,
+        state: party_node.xpath("nfe:#{address_node}/nfe:UF", nfe_namespace).text,
+        postal_code: party_node.xpath("nfe:#{address_node}/nfe:CEP", nfe_namespace).text,
+        country_code: party_node.xpath("nfe:#{address_node}/nfe:cPais", nfe_namespace).text,
+        country: party_node.xpath("nfe:#{address_node}/nfe:xPais", nfe_namespace).text,
+      },
+      phone: party_node.xpath("nfe:#{address_node}/nfe:fone", nfe_namespace).text,
+      ie: party_node.xpath('nfe:IE', nfe_namespace).text,
+      crt: role == 'issuer' ? party_node.xpath('nfe:CRT', nfe_namespace).text : nil # CRT é só para o emissor
+    }
   end
 
   def create_products(parsed_xml)
